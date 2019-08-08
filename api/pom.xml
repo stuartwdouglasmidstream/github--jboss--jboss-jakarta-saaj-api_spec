@@ -15,9 +15,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.eclipse.ee4j</groupId>
-        <artifactId>project</artifactId>
-        <version>1.0.5</version>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-parent</artifactId>
+      <version>35</version>
     </parent>
 
     <properties>
@@ -40,17 +40,17 @@
         <vendor.name>Eclipse Foundation</vendor.name>
     </properties>
 
-    <groupId>jakarta.xml.soap</groupId>
-    <artifactId>jakarta.xml.soap-api</artifactId>
-    <version>1.4.2</version>
+    <groupId>org.jboss.spec.javax.xml.soap</groupId>
+    <artifactId>jboss-saaj-api_1.4_spec</artifactId>
+    <version>1.0.0.CR1-SNAPSHOT</version>
     <description>Provides the API for creating and building SOAP messages.</description>
     <name>Jakarta SOAP with Attachments API</name>
     <url>https://github.com/eclipse-ee4j/saaj-api</url>
 
     <scm>
-        <connection>scm:git:git://github.com/eclipse-ee4j/saaj-api.git</connection>
-        <developerConnection>scm:git:git:@github.com:eclipse-ee4j/saaj-api.git</developerConnection>
-        <url>https://github.com/eclipse-ee4j/saaj-api</url>
+        <connection>scm:git:git://github.com/jboss/jboss-jakarta-saaj-api_spec.git</connection>
+        <developerConnection>scm:git:git:@github.com:jboss/jboss-jakarta-saaj-api_spec.git</developerConnection>
+        <url>https://github.com/jboss/jboss-jakarta-saaj-api_spec</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -112,17 +112,6 @@
                     <version>2.2</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.20</version>
-                    <!-- FIXME: 6 jUnit tests are failing with 2.21.0 and later -->
-                    <!--version>2.22.1</version-->
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                </plugin>
-                <plugin>
                     <groupId>org.glassfish.build</groupId>
                     <artifactId>spec-version-maven-plugin</artifactId>
                     <version>1.5</version>
@@ -131,21 +120,6 @@
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>3.5.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
@@ -209,15 +183,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <release>7</release>
-                    <compilerArgs>
-                        <compilerArg>-Xlint:all</compilerArg>
-                    </compilerArgs>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.glassfish.copyright</groupId>
