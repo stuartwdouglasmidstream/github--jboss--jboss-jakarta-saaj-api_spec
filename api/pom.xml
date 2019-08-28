@@ -48,8 +48,8 @@
     <url>https://github.com/eclipse-ee4j/saaj-api</url>
 
     <scm>
-        <connection>scm:git:git://github.com/jboss/jboss-jakarta-saaj-api_spec.git</connection>
-        <developerConnection>scm:git:git:@github.com:jboss/jboss-jakarta-saaj-api_spec.git</developerConnection>
+        <connection>scm:git:https://github.com/jboss/jboss-jakarta-saaj-api_spec.git</connection>
+        <developerConnection>scm:git:https://github.com/jboss/jboss-jakarta-saaj-api_spec.git</developerConnection>
         <url>https://github.com/jboss/jboss-jakarta-saaj-api_spec</url>
         <tag>HEAD</tag>
     </scm>
