@@ -42,7 +42,7 @@
 
     <groupId>org.jboss.spec.javax.xml.soap</groupId>
     <artifactId>jboss-saaj-api_1.4_spec</artifactId>
-    <version>1.0.0.CR2</version>
+    <version>1.0.0.Final-SNAPSHOT</version>
     <description>Provides the API for creating and building SOAP messages.</description>
     <name>Jakarta SOAP with Attachments API</name>
     <url>https://github.com/eclipse-ee4j/saaj-api</url>
@@ -51,7 +51,7 @@
         <connection>scm:git:https://github.com/jboss/jboss-jakarta-saaj-api_spec.git</connection>
         <developerConnection>scm:git:https://github.com/jboss/jboss-jakarta-saaj-api_spec.git</developerConnection>
         <url>https://github.com/jboss/jboss-jakarta-saaj-api_spec</url>
-        <tag>1.0.0.CR2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
