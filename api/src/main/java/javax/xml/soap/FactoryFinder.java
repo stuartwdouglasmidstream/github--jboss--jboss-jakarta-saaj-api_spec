@@ -136,8 +136,10 @@ class FactoryFinder {
         }
         if (moduleClassLoader != null) {
            try {
-              InputStream is = moduleClassLoader.getResourceAsStream(serviceId);
-          
+              InputStream is = moduleClassLoader.getResourceAsStream("META-INF/services/" + deprecatedFactoryId);
+              if (is == null) {
+                  is = moduleClassLoader.getResourceAsStream(serviceId);
+              }
               if( is!=null ) {
                   BufferedReader rd =
                       new BufferedReader(new InputStreamReader(is, "UTF-8"));
