@@ -102,11 +102,6 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>1.4</version>
-                </plugin>
-                <plugin>
                     <groupId>org.glassfish.copyright</groupId>
                     <artifactId>glassfish-copyright-maven-plugin</artifactId>
                     <version>2.2</version>
@@ -117,24 +112,9 @@
                     <version>1.5</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>3.5.1</version>
-                </plugin>
-                <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>${spotbugs.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.0.0-M2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -237,6 +217,14 @@
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Automatic-Module-Name>java.xml.soap</Automatic-Module-Name>
+                        </manifestEntries>
+                    </archive>
                     <instructions>
                         <Bundle-Version>${spec.bundle.version}</Bundle-Version>
                         <!--Bundle-SymbolicName>${spec.bundle.symbolic-name}</Bundle-SymbolicName-->
@@ -252,6 +240,10 @@
                         <Implementation-Build-Id>${scmBranch}-${buildNumber}, ${timestamp}</Implementation-Build-Id>
                         <Import-Package>javax.activation;version=!,*</Import-Package>
                         <_noee>true</_noee>
+                        <!-- Set the package version to match the spec version -->
+                        <Export-Package>
+                            javax.xml.soap*;version=1.3
+                        </Export-Package>
                     </instructions>
                 </configuration>
                 <executions>
@@ -364,36 +356,11 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
                                     <goals>
                                         <goal>compile</goal>
                                     </goals>
-                                    <configuration>
-                                        <excludes>
-                                            <exclude>module-info.java</exclude>
-                                        </excludes>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>
                     </plugins>
                 </pluginManagement>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>add-jdk9-source</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>add-source</goal>
-                                </goals>
-                                <configuration>
-                                    <sources>
-                                        <source>src/main/jdk9</source>
-                                    </sources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
             </build>
         </profile>
     </profiles>
