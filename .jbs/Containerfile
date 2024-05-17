@@ -1,0 +1,10 @@
+FROM quay.io/sdouglas/hacbs-jdk17-builder:domain
+USER 0
+WORKDIR /root
+RUN mkdir -p /root/project /root/software/settings /original-content/marker && microdnf install vim curl
+ENV JBS_DISABLE_CACHE=true
+COPY .jbs/run-build.sh /root
+COPY . /root/project/workspace/
+RUN /root/run-build.sh
+FROM scratch
+COPY --from=0 /root/project/artifacts /root/artifacts
